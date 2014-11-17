@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="pl.sii.eu.photodoc"
+    version="1.0">
+	
+    <name>PhotoDoc</name>
+
+    <js-module src="www/PhonegapPhotoDoc.js" name="PhonegapPhotoDoc">
+        <clobbers target="PhonegapPhotoDoc" />
+    </js-module>
+
+    <!-- wp8 -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PhotoDoc">
+                <param name="wp-package" value="PhotoDoc"/>
+            </feature>
+        </config-file>
+
+        <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
+            <Capability Name="ID_CAP_ISV_CAMERA" />
+            <Capability Name="ID_CAP_MEDIALIB_PHOTO"/>
+        </config-file>
+
+        <source-file src="src/wp/PhotoDoc.cs" />
+
+    </platform>
+
+</plugin>
